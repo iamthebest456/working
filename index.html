@@ -35,10 +35,35 @@
 <body>
     <h1>Project: Fun</h1>
     <div class="container">
-        <form action="search.php" method="get" target="_self">
-            <input type="text" name="q" placeholder="Search Google...">
+        <form id="searchForm">
+            <input type="text" id="query" name="q" placeholder="Search Google...">
             <input type="submit" value="Search">
         </form>
     </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            var query = document.getElementById('query').value;
+            var url = '/search?' + query;
+
+            // Send a GET request to the Python server
+            fetch(url)
+            .then(function(response) {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(function(data) {
+                // Redirect to Google search results
+                window.location.href = data;
+            })
+            .catch(function(error) {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        });
+    </script>
 </body>
 </html>
