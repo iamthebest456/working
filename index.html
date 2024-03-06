@@ -46,23 +46,10 @@
             event.preventDefault(); // Prevent the form from submitting normally
 
             var query = document.getElementById('query').value;
-            var url = '/search?' + query;
+            var url = '/?' + query;
 
-            // Send a GET request to the Python server
-            fetch(url)
-            .then(function(response) {
-                if (response.ok) {
-                    return response.text();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(function(data) {
-                // Redirect to Google search results
-                window.location.href = data;
-            })
-            .catch(function(error) {
-                console.error('There was a problem with the fetch operation:', error);
-            });
+            // Redirect to Google search results
+            window.location.href = url;
         });
     </script>
 </body>
