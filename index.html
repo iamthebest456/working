@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Fun</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Lato', sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4285f4; /* Google blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project: Fun</h1>
+    <div class="container">
+        <form action="search.php" method="get" target="_self">
+            <input type="text" name="q" placeholder="Search Google...">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>
