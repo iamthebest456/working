@@ -1,20 +1,24 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from urllib.parse import urlencode
-import urllib.request
 
 class ProxyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        # Get the search query from the URL parameter
-        query = self.path.split('?')[1]
+        # Serve the HTML file
+        if self.path == '/':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            with open('index.html', 'rb') as file:
+                self.wfile.write(file.read())
+        # Handle search requests
+        else:
+            parsed_url = urlparse(self.path)
+            query = parsed_url.query
 
-        # Encode the query
-        encoded_query = urlencode({'q': query})
-
-        # Redirect to Google search with the encoded query
-        google_url = 'https://www.google.com/search?' + encoded_query
-        self.send_response(302)
-        self.send_header('Location', google_url)
-        self.end_headers()
+            # Redirect to Google search with the query
+            google_url = 'https://www.google.com/search?' + query
+            self.send_response(302)
+            self.send_header('Location', google_url)
+            self.end_headers()
 
 def run(server_class=HTTPServer, handler_class=ProxyHandler, port=8080):
     server_address = ('', port)
