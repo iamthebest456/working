@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Fun</title>
-    <style>
-        body {
-            background-color: black;
-            font-family: 'Lato', sans-serif;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            margin-top: 100px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            border: none;
-            border-radius: 5px;
-        }
-        input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #4285f4; /* Google blue */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <script async src="https://arc.io/widget.min.js#E9vFnUFC"></script>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
+    <title id="tab-title">Home</title>
+    <link rel="stylesheet" href="/assets/styles/main.css?v=2" />
+    <link rel="stylesheet" href="/assets/styles/themes/default.css?v=4" />
+    <script src="jquery-3.7.1.min.js"></script>
 </head>
-<body>
-    <h1>Project: Fun</h1>
-    <div class="container">
-        <form id="searchForm">
-            <input type="text" id="query" name="q" placeholder="Search Google...">
-            <input type="submit" value="Search">
-        </form>
+<body class="center" onload="splashtext()">
+    <div class="fixed-nav-bar">
+        <div class="fixed-nav-bar-container">
+            <a class="icon" href="/./"><img alt="nav" id="INImg" src="/assets/media/favicon/main.png" /></a>
+        </div>
+        <div class="fixed-nav-bar-right">
+            <a class="navbar-link" href="/./-"><i class="fa-solid fa-gamepad navbar-icon"></i>Games</a>
+            <a class="navbar-link" href="/./~"><i class="fa-solid fa-phone navbar-icon"></i>Apps</a>
+            <a class="navbar-link" href="/./0"><i class="fa-solid fa-laptop navbar-icon"></i>Tabs</a>
+            <a class="navbar-link" href="/./!"><i class="fa-solid fa-gear navbar-icon settings-icon"></i>Settings</a>
+        </div>
     </div>
-
+    <div id="particles-js">
+        <div class="main">
+            <h1 class="title">Interstellar</h1>
+            <p id="splash">Unknown</p>
+            <div class="search-container">
+                <form id="searchForm" action="https://yourwebsite.com/hvrts/search" method="GET">
+                    <input id="is" class="main-search" name="q" placeholder="Search with DuckDuckGo or enter address" type="text" />
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/assets/scripts/home.min.js?v=9"></script>
+    <script src="assets/scripts/index.js?v=5"></script>
+    <script src="./m/bundle.js"></script>
+    <script src="./m/config.js"></script>
+    <script src="https://kit.fontawesome.com/1237c86ba0.js" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
     <script>
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
+        window.dataLayer = window.dataLayer || []
 
-            var query = document.getElementById('query').value;
-            var url = '/?' + query;
-
-            // Redirect to Google search results
-            window.location.href = url;
-        });
+        function gtag() {
+            dataLayer.push(arguments)
+        }
+        gtag('js', new Date())
+        gtag('config', 'G-WKJQ5QHQTJ')
     </script>
+    <script src="/assets/scripts/main.min.js?v=3"></script>
+    <div id="adv"></div>
 </body>
 </html>
